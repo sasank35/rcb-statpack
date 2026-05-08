@@ -101,6 +101,7 @@ const reservePlayers = ["Faf du Plessis", "Jacques Kallis", "Dale Steyn", "Wanin
 
 const battingLabelPlayers = new Set(["Virat Kohli", "AB de Villiers", "Chris Gayle", "Rajat Patidar", "Faf du Plessis", "Glenn Maxwell", "Dinesh Karthik", "Tim David", "Phil Salt"]);
 const bowlingLabelPlayers = new Set(["Yuzvendra Chahal", "Harshal Patel", "Mohammed Siraj", "Vinay Kumar", "Josh Hazlewood", "Anil Kumble", "Mitchell Starc", "Bhuvneshwar Kumar", "Wanindu Hasaranga", "Krunal Pandya"]);
+const battingLeaderboardMinRuns = 100;
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
@@ -602,10 +603,10 @@ function renderCharts() {
     const rows = [...appData.mostMatches].sort((a, b) => b.matches - a.matches).slice(0, 12);
     drawHorizontalBarChart($("#leaderChart"), rows.map((row) => row.player), rows.map((row) => row.matches), { colors: topBarColors(rows) });
   } else if (leaderMetric === "strikeRate") {
-    const rows = [...appData.battingCareer].filter((row) => row.runs >= 200).sort((a, b) => b.strikeRate - a.strikeRate).slice(0, 12);
+    const rows = [...appData.battingCareer].filter((row) => row.runs >= battingLeaderboardMinRuns).sort((a, b) => b.strikeRate - a.strikeRate).slice(0, 12);
     drawHorizontalBarChart($("#leaderChart"), rows.map((row) => row.player), rows.map((row) => row.strikeRate), { colors: topBarColors(rows) });
   } else if (leaderMetric === "average") {
-    const rows = [...appData.battingCareer].filter((row) => row.runs >= 200 && row.average).sort((a, b) => b.average - a.average).slice(0, 12);
+    const rows = [...appData.battingCareer].filter((row) => row.runs >= battingLeaderboardMinRuns && row.average).sort((a, b) => b.average - a.average).slice(0, 12);
     drawHorizontalBarChart($("#leaderChart"), rows.map((row) => row.player), rows.map((row) => row.average), { colors: topBarColors(rows) });
   } else {
     const rows = [...appData.battingCareer].sort((a, b) => b.runs - a.runs).slice(0, 12);
