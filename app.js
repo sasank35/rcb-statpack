@@ -97,7 +97,7 @@ const selectedXII = [
   { slot: 12, player: "Harshal Patel", role: "Impact substitute", foreign: false, type: "bowler", reason: "Record 32-wicket season and condition-specific death bowling value." }
 ];
 
-const reservePlayers = ["Faf du Plessis", "Jacques Kallis", "Dale Steyn", "Wanindu Hasaranga", "Mitchell Starc", "Mohammed Siraj", "KL Rahul", "Devdutt Padikkal", "Phil Salt", "Jitesh Sharma", "Yash Dayal", "Tim David", "Romario Shepherd", "Washington Sundar"];
+const reservePlayers = ["Faf du Plessis", "Jacques Kallis", "Dale Steyn", "Wanindu Hasaranga", "Mitchell Starc", "Mohammed Siraj", "KL Rahul", "Devdutt Padikkal", "Phil Salt", "Jitesh Sharma", "Yash Dayal", "Tim David", "Romario Shepherd", "LRPL Taylor", "Washington Sundar"];
 
 const battingLabelPlayers = new Set(["Virat Kohli", "AB de Villiers", "Chris Gayle", "Rajat Patidar", "Faf du Plessis", "Glenn Maxwell", "Dinesh Karthik", "Tim David", "Phil Salt"]);
 const bowlingLabelPlayers = new Set(["Yuzvendra Chahal", "Harshal Patel", "Mohammed Siraj", "Vinay Kumar", "Josh Hazlewood", "Anil Kumble", "Mitchell Starc", "Bhuvneshwar Kumar", "Wanindu Hasaranga", "Krunal Pandya"]);
