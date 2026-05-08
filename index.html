@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Royal Challengers Bengaluru StatPack</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+      <div>
+        <p class="eyebrow">RCB RECORD BOOK · 2008-2026</p>
+        <h1>Royal Challengers Bengaluru StatPack</h1>
+        <p class="subtitle">A complete Royal Challengers Bengaluru record book: seasons, players, records, tables and all-time XI.</p>
+      </div>
+      <div class="actions">
+        <a class="secondary" href="data/csv/battingCareer.csv">CSV exports</a>
+      </div>
+      </div>
+    </header>
+
+    <main class="dashboard-shell">
+      <section class="status-line" id="statusLine">Loading records...</section>
+
+      <section class="kpi-grid" id="kpiGrid"></section>
+
+      <nav class="view-tabs" id="viewTabs">
+        <button class="view-tab active" data-view="overview">Overview</button>
+        <button class="view-tab" data-view="batting">Batting</button>
+        <button class="view-tab" data-view="bowling">Bowling</button>
+        <button class="view-tab" data-view="seasons">Seasons</button>
+        <button class="view-tab" data-view="records">Records</button>
+        <button class="view-tab" data-view="tables">Tables</button>
+        <button class="view-tab" data-view="xi">All-Time XII</button>
+      </nav>
+
+      <section class="view-panel active" data-panel="overview">
+        <section class="insight-copy">2025 finally turned the RCB record book from nearly-men folklore into a title-winning archive.</section>
+        <section class="legend-strip">
+          <div><span>Run King</span><strong>Virat Kohli</strong></div>
+          <div><span>Ceiling Breaker</span><strong>Chris Gayle</strong></div>
+          <div><span>Middle-order Alien</span><strong>AB de Villiers</strong></div>
+          <div><span>Wicket King</span><strong>Yuzvendra Chahal</strong></div>
+        </section>
+        <div class="analysis-grid">
+          <div class="panel">
+            <div class="panel-head">
+              <h2>Best Players</h2>
+              <select id="leaderMetric">
+                <option value="runs">Runs</option>
+                <option value="wickets">Wickets</option>
+                <option value="matches">Matches</option>
+                <option value="strikeRate">Batting SR</option>
+                <option value="average">Batting average</option>
+              </select>
+            </div>
+            <canvas id="leaderChart" height="420"></canvas>
+          </div>
+          <div class="panel">
+            <div class="panel-head">
+              <h2>Season Performance</h2>
+              <select id="seasonMetric">
+                <option value="winPct">Win %</option>
+                <option value="won">Wins</option>
+                <option value="points">Points</option>
+              </select>
+            </div>
+            <canvas id="seasonChart" height="420"></canvas>
+            <div class="legend">
+              <span style="--dot:#231f20">League stage</span>
+              <span style="--dot:#137a43">Playoffs</span>
+              <span style="--dot:#244f8f">Finalist</span>
+              <span style="--dot:#d4a72c">Champion</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view-panel" data-panel="batting">
+        <section class="insight-copy">Kohli owns the volume record by a distance, while Gayle, AB de Villiers, Tim David and the 2025 title batters dominate the high-impact strike-rate zones.</section>
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Batting Average vs Strike Rate</h2>
+            <label class="control">Minimum runs <input id="minRuns" type="number" min="0" step="50" value="100" /></label>
+            <label class="control">Show labels <select id="battingLabelMode"><option value="top">Top players</option><option value="all">All</option><option value="none">None</option></select></label>
+            <button id="resetBattingScatter" type="button">Reset hidden</button>
+          </div>
+          <canvas id="battingScatter" height="520"></canvas>
+        </div>
+        <div class="analysis-grid">
+          <div class="panel">
+            <div class="panel-head">
+              <h2>Most Runs</h2>
+            </div>
+            <canvas id="battingRunsChart" height="420"></canvas>
+          </div>
+          <div class="panel">
+            <div class="panel-head">
+              <h2>Best Strike Rate</h2>
+            </div>
+            <canvas id="battingSrChart" height="420"></canvas>
+          </div>
+        </div>
+        <div class="insight-grid" id="battingInsights"></div>
+        <div class="mini-table-wrap">
+          <h2>Batting Data</h2>
+          <div id="battingMiniTable"></div>
+        </div>
+      </section>
+
+      <section class="view-panel" data-panel="bowling">
+        <section class="insight-copy">Chahal leads the franchise wicket chart, while Kumble, Starc and Washington provide the clearest control profiles among meaningful samples.</section>
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Bowling Economy vs Strike Rate</h2>
+            <label class="control">Minimum wickets <input id="minWickets" type="number" min="0" step="5" value="10" /></label>
+            <label class="control">Show labels <select id="bowlingLabelMode"><option value="top">Top players</option><option value="all">All</option><option value="none">None</option></select></label>
+            <button id="resetBowlingScatter" type="button">Reset hidden</button>
+          </div>
+          <canvas id="bowlingScatter" height="520"></canvas>
+        </div>
+        <div class="analysis-grid">
+          <div class="panel">
+            <div class="panel-head">
+              <h2>Wickets vs Economy</h2>
+            </div>
+            <canvas id="wicketsEconomyChart" height="420"></canvas>
+          </div>
+          <div class="panel">
+            <div class="panel-head">
+              <h2>Best Economy</h2>
+            </div>
+            <canvas id="economyChart" height="420"></canvas>
+          </div>
+        </div>
+        <div class="insight-grid" id="bowlingInsights"></div>
+        <div class="mini-table-wrap">
+          <h2>Bowling Data</h2>
+          <div id="bowlingMiniTable"></div>
+        </div>
+      </section>
+
+      <section class="view-panel" data-panel="seasons">
+        <section class="insight-copy">RCB's 2025 title season finally broke a finals pattern that began in 2009, turning years of near-misses into the franchise's defining milestone.</section>
+        <div class="panel">
+          <div class="panel-head">
+            <h2>RCB Season Timeline</h2>
+            <select id="seasonMetricLarge">
+              <option value="winPct">Win %</option>
+              <option value="won">Wins</option>
+              <option value="points">Points</option>
+            </select>
+          </div>
+          <canvas id="seasonLargeChart" height="520"></canvas>
+          <div class="legend">
+            <span style="--dot:#231f20">League stage</span>
+            <span style="--dot:#137a43">Playoffs</span>
+            <span style="--dot:#244f8f">Finalist</span>
+            <span style="--dot:#d4a72c">Champion</span>
+          </div>
+        </div>
+        <div class="mini-table-wrap">
+          <h2>Season Data</h2>
+          <div id="seasonMiniTable"></div>
+        </div>
+      </section>
+
+      <section class="view-panel" data-panel="records">
+        <div class="record-table-grid" id="recordTables"></div>
+      </section>
+
+      <section class="view-panel" data-panel="tables">
+      <section class="table-tools">
+        <label class="control">Table <select id="tableSelect"></select></label>
+        <input id="tableSearch" type="search" placeholder="Search the selected table" />
+        <label class="control">Rows <select id="pageSize"><option>10</option><option selected>25</option><option>50</option><option>100</option></select></label>
+        <button id="exportTableBtn">Export CSV</button>
+        <span id="tableCount"></span>
+      </section>
+      <p class="table-description" id="tableDescription"></p>
+      <section class="table-wrap">
+        <table id="dataTable"></table>
+      </section>
+      <section class="pager" id="pager"></section>
+      </section>
+
+      <section class="view-panel" data-panel="xi">
+      <section class="best-section">
+        <div class="section-head">
+          <h2>Best Ever RCB XII</h2>
+          <p>Impact-sub era selection, maximum four overseas players.</p>
+        </div>
+        <div class="xi-grid" id="xiGrid"></div>
+      </section>
+      <article class="article" id="article"></article>
+      <section class="mini-table-wrap">
+        <h2>Selected XII And Reserves</h2>
+        <div id="xiStatsTable"></div>
+      </section>
+      </section>
+    </main>
+    <div class="toast" id="toast" hidden></div>
+    <div class="chart-tooltip" id="chartTooltip" hidden></div>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

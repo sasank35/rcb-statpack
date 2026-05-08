@@ -1,0 +1,19 @@
+season,league,matches,won,lost,tied,nr,points,position,result
+2008,IPL,14,4,10,0,0,8,7/8,League Stage
+2009,IPL,16,9,7,0,0,18,3/8,Runners Up
+2010,IPL,16,8,8,0,0,16,4/8,Third Place
+2011,IPL,17,10,6,0,1,21,1/10,Runners Up
+2012,IPL,16,8,7,0,1,17,5/9,League Stage
+2013,IPL,16,9,7,0,0,18,5/9,League Stage
+2014,IPL,14,5,9,0,0,10,7/8,League Stage
+2015,IPL,16,8,6,0,2,18,3/8,Third Place
+2016,IPL,16,9,7,0,0,18,2/8,Runners Up
+2017,IPL,14,3,10,0,1,7,8/8,League Stage
+2018,IPL,14,6,8,0,0,12,6/8,League Stage
+2019,IPL,14,5,8,0,1,11,8/8,League Stage
+2020,IPL,15,7,8,0,0,14,4/8,Playoffs
+2021,IPL,15,9,6,0,0,18,3/8,Playoffs
+2022,IPL,16,9,7,0,0,18,4/10,Third Place
+2023,IPL,14,7,7,0,0,14,6/10,League Stage
+2024,IPL,15,7,8,0,0,14,4/10,Playoffs
+2025,IPL,16,11,4,0,1,23,2/10,Champions
